@@ -9,7 +9,14 @@ export default function FullLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+        bgColor: "background",
+      }}
+    >
       <Header />
       <Box component="main" sx={{ flexGrow: 1 }}>
         {children}

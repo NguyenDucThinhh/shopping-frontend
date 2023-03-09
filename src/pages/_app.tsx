@@ -5,23 +5,20 @@ import {
   createTheme,
   CssBaseline,
   responsiveFontSizes,
-  Theme,
   ThemeProvider,
-  useMediaQuery,
 } from "@mui/material";
-import { deepmerge } from "@mui/utils";
 import createEmotionCache from "createEmotionCache";
 import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 
+import RouteChangeLoading from "@/components/Loading/RouteChangeLoading";
+import { store } from "@/redux/store";
+import { getThemeConfig } from "@/theme";
 import ShareCover from "public/share_cover.png";
 import { Provider } from "react-redux";
-import { store } from "@/redux/store";
-import { getThemeConfig, getThemedComponent, THEME_MODE } from "@/theme";
 import { ToastContainer } from "react-toastify";
-import RouteChangeLoading from "@/components/Loading/RouteChangeLoading";
 
 export type NextPageWithLayout<P = Record<string, never>, IP = P> = NextPage<
   P,
@@ -40,21 +37,11 @@ const clientSideEmotionCache = createEmotionCache();
 export default function App(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const getLayout = Component.getLayout ?? ((page: React.ReactElement) => page);
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  const [mode, setMode] = useState<THEME_MODE>((): THEME_MODE => {
-    let initialMode = localStorage.getItem("theme") as THEME_MODE;
-    if (!initialMode) {
-      initialMode = prefersDarkMode ? "dark" : "light";
-      localStorage.setItem("theme", initialMode);
-    }
-    return initialMode;
-  });
-  const theme = useMemo<Theme>(() => {
-    const _t = createTheme(getThemeConfig(mode));
-    return responsiveFontSizes(deepmerge(_t, getThemedComponent(_t)), {
-      breakpoints: ["xs", "xsm", "sm", "md", "lg", "xl", "xxl"],
-    });
-  }, [mode]);
+
+  const theme = useMemo(
+    () => responsiveFontSizes(createTheme(getThemeConfig())),
+    []
+  );
   return (
     <>
       <CacheProvider value={emotionCache}>
