@@ -1,9 +1,9 @@
-import { NextPageWithLayout } from "./_app";
 import { Box } from "@mui/material";
 import Introduction from "@/modules/home/introduction";
 import FullLayout from "@/layouts/FullLayout";
+import { NextPageWithLayout } from "../_app";
 
-const Home: NextPageWithLayout = (props) => {
+const Shop: NextPageWithLayout = (props) => {
   return (
     <Box>
       <Introduction />
@@ -11,8 +11,8 @@ const Home: NextPageWithLayout = (props) => {
   );
 };
 
-export default Home;
+export default Shop;
 
-Home.getLayout = (page) => {
+Shop.getLayout = (page) => {
   return <FullLayout>{page}</FullLayout>;
 };
