@@ -31,7 +31,18 @@ export default function Introduction() {
             For Your Home
           </Typography>
         </Box>
-        <Button sx={{ textAlign: "center" }}>Shop Now</Button>
+        <Box sx={{ display: "flex", justifyContent: "center", width: "100vw" }}>
+          <Button
+            sx={{
+              textAlign: "center",
+              p: "20px 30px 20px 30px",
+            }}
+            variant="contained"
+            color="secondary"
+          >
+            Shop Now
+          </Button>
+        </Box>
       </Box>
     </Box>
   );

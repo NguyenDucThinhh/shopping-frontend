@@ -1,5 +1,7 @@
-import { createTheme, ThemeOptions } from "@mui/material";
+/* eslint-disable quotes */
+import { createTheme, darken, lighten, ThemeOptions } from "@mui/material";
 import { Link } from "./components/primitives/Link";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const round = (value: number): number => Math.round(value * 1e5) / 1e5;
 const pxToRem = (size: number): string => `${size / 16}rem`;
@@ -10,6 +12,7 @@ const buildVariant = (
   lineHeight: number,
   letterSpacing?: number
 ) => ({
+  fontFamily: "inherit",
   fontWeight,
   fontSize: pxToRem(size),
   lineHeight: `${round(lineHeight / size)}`,
@@ -37,24 +40,25 @@ export function getThemeConfig(): ThemeOptions {
     palette: {
       mode: "dark",
       common: {
-        border: "#0E1C32",
+        border: "#0E2331",
       },
       background: {
-        default: "#38383b",
-        // paper: "#0B1119",
-        // primary: "#1A232F",
+        default: "#00060D",
+        paper: "#0D1921",
+        primary: "#0E1D27",
+        secondary: "#172731",
       },
-      // primary: {
-      //   main: "#2992F5",
-      // },
-      // secondary: {
-      //   main: "#091C34",
-      //   light: "#FFFFFF",
-      //   dark: "#0D171F",
-      // },
+      primary: {
+        main: "#009FDB",
+      },
+      secondary: {
+        main: "#C9EBF8",
+        light: "#FFFFFF",
+        dark: "#0D171F",
+      },
       text: {
-        primary: "#ffffff",
-        secondary: "#a8a6a1",
+        primary: "#FFFFFF",
+        secondary: "#5185AA",
       },
       action: {
         hoverOpacity: 0.14,
@@ -63,12 +67,12 @@ export function getThemeConfig(): ThemeOptions {
       divider: "#172C46",
     },
     typography: {
-      h1: buildVariant(700, 50, 60, 0),
-      h2: buildVariant(500, 30, 35, 0),
-      h3: buildVariant(500, 26, 35, 0),
-      h4: buildVariant(500, 20, 24, 0),
-      subtitle1: buildVariant(500, 20, 24, 0),
-      subtitle2: buildVariant(500, 18, 22, 0),
+      h1: buildVariant(800, 50, 60, 0),
+      h2: buildVariant(600, 30, 35, 0),
+      h3: buildVariant(600, 26, 35, 0),
+      h4: buildVariant(600, 20, 24, 0),
+      subtitle1: buildVariant(600, 20, 24, 0),
+      subtitle2: buildVariant(600, 18, 22, 0),
       body1: buildVariant(400, 16, 20, 0),
       body2: buildVariant(400, 14, 18, 0),
       small: buildVariant(400, 12, 16, 0),
@@ -80,12 +84,11 @@ export function getThemeConfig(): ThemeOptions {
     components: {
       MuiCssBaseline: {
         styleOverrides: {
-          ".babapro": {
-            fontFamily: "babapro, san-serif !important",
+          "*": {
+            WebkitTapHighlightColor: "transparent",
           },
-          ".roboto-mono": {
-            // eslint-disable-next-line quotes
-            fontFamily: "'Roboto Mono', monospace !important",
+          "input, select, textarea": {
+            fontFamily: "inherit",
           },
           // disable arrow from input number
           // Chrome, Safari, Edge, Opera
@@ -108,11 +111,11 @@ export function getThemeConfig(): ThemeOptions {
           ".custom-scrollbar": {
             // firefox
             scrollbarWidth: "thin",
-            scrollbarColor: "#424242 transparent",
+            scrollbarColor: "rgba(124, 124, 124, 0.6) transparent",
 
             "&:hover": {
               "&::-webkit-scrollbar-thumb": {
-                backgroundColor: "#424242",
+                backgroundColor: "rgba(124, 124, 124, 0.6)",
               },
             },
 
@@ -129,7 +132,7 @@ export function getThemeConfig(): ThemeOptions {
               borderRadius: 10,
               backgroundColor: "transparent",
               "&:hover": {
-                backgroundColor: "#757575",
+                backgroundColor: "rgba(124, 124, 124, 1)",
               },
             },
             "&::-webkit-scrollbar-corner": {
@@ -146,6 +149,16 @@ export function getThemeConfig(): ThemeOptions {
           },
           body: {
             overflowX: "hidden",
+            fontFamily: "'Montserrat', sans-serif",
+          },
+          // wallet modal
+          ":root": {
+            "--w3m-z-index": "9999 !important",
+          },
+          ".ledger-ck-modal": {
+            ">:first-child, #ModalWrapper": {
+              zIndex: 9999,
+            },
           },
         },
       },
@@ -186,6 +199,13 @@ export function getThemeConfig(): ThemeOptions {
           sizeSmall: {
             padding: theme.spacing(0.75, 1.5),
           },
+          containedSecondary: {
+            color: "#C9EBF8",
+            backgroundColor: "#0E1D27",
+            "&:hover": {
+              backgroundColor: lighten("#0E1D27", 0.08),
+            },
+          },
         },
       },
 
@@ -205,7 +225,7 @@ export function getThemeConfig(): ThemeOptions {
       MuiDialog: {
         styleOverrides: {
           paper: {
-            backgroundColor: "#0B1119",
+            backgroundColor: "#0D1921",
             backgroundImage: "none",
           },
         },
@@ -214,7 +234,8 @@ export function getThemeConfig(): ThemeOptions {
         styleOverrides: {
           root: {
             padding: theme.spacing(2, 2.5),
-            backgroundColor: "#101822",
+            fontFamily: "inherit",
+            // backgroundColor: '#101822',
             "&.MuiDialogTitle-root+.MuiDialogContent-root": {
               paddingTop: theme.spacing(2.5),
             },
@@ -310,7 +331,7 @@ export function getThemeConfig(): ThemeOptions {
             color: "#002A52",
             marginLeft: 8,
             "&.Mui-expanded": {
-              color: "#7994C1",
+              color: "#C9EBF8",
             },
           },
         },
@@ -347,6 +368,57 @@ export function getThemeConfig(): ThemeOptions {
               paddingLeft: theme.spacing(4),
               paddingRight: theme.spacing(4),
             },
+          },
+        },
+      },
+
+      // chip
+      MuiChip: {
+        styleOverrides: {
+          root: {
+            borderRadius: 10,
+          },
+          colorSecondary: {
+            borderColor: "#527492",
+            color: "#477595",
+          },
+          filledSecondary: {
+            backgroundColor: "#477595",
+            color: "#C9EBF8",
+            "&:hover": {
+              backgroundColor: darken("#477595", 0.2),
+            },
+          },
+        },
+      },
+
+      // breadcrumbs
+      MuiBreadcrumbs: {
+        defaultProps: {
+          color: "#477595",
+          // separator: <ArrowForwardIosIcon fontSize="small" />,
+        },
+        styleOverrides: {
+          root: {
+            fontWeight: 500,
+          },
+        },
+      },
+
+      // tooltip
+      MuiTooltip: {
+        defaultProps: {
+          placement: "top",
+          arrow: true,
+        },
+        styleOverrides: {
+          tooltip: {
+            fontFamily: "inherit",
+            fontSize: 14,
+            // backgroundColor: '#00060D',
+            // border: '1px solid',
+            // borderColor: '#0E2331',
+            padding: theme.spacing(0.5, 1),
           },
         },
       },
