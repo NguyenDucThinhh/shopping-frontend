@@ -40,7 +40,7 @@ export default function Introduction() {
             variant="contained"
             color="secondary"
           >
-            Shop Now
+            Shop Nows
           </Button>
         </Box>
       </Box>
