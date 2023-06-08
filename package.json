@@ -10,8 +10,7 @@
     "lint:dev-check": "eslint --config ./.eslintrc.js . --ext .jsx,.js,.tsx,.ts",
     "lint:check": "eslint --config ./.eslintrc-staged.js . --ext .jsx,.js,.tsx,.ts",
     "lint:fix": "yarn run lint:check --fix",
-    "format": "prettier '*/**/*.{ts,js,jsx,tsx,json,yml,md}' --write",
-    "prepare": "husky install"
+    "format": "prettier '*/**/*.{ts,js,jsx,tsx,json,yml,md}' --write"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
