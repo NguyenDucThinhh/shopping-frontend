@@ -50,10 +50,9 @@ export default function App(props: MyAppProps) {
         </Head>
         <Meta
           title={"Shopping Center"}
-          description={"A platform for blockchain data analysis"}
+          description={""}
           imageUrl={ShareCover.src}
-          // url={"https://trava.center"}
-          keywords={"trava center, trava"}
+          keywords={""}
         />
         <Provider store={store}>
           <ThemeProvider theme={theme}>

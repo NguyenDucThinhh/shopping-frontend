@@ -13,6 +13,8 @@
     "format": "prettier '*/**/*.{ts,js,jsx,tsx,json,yml,md}' --write"
   },
   "dependencies": {
+    "@emotion/cache": "^11.11.0",
+    "@emotion/server": "^11.11.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.9",
