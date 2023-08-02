@@ -1,13 +1,13 @@
-import { Box } from "@mui/material";
-import Introduction from "@/modules/home/introduction";
 import FullLayout from "@/layouts/FullLayout";
+import Journals from "@/modules/journal/Journals";
+import { Container } from "@mui/material";
 import { NextPageWithLayout } from "../_app";
 
 const Journal: NextPageWithLayout = (props) => {
   return (
-    <Box>
-      <Introduction />
-    </Box>
+    <Container>
+      <Journals />
+    </Container>
   );
 };
 

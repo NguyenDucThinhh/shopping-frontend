@@ -1,34 +1,63 @@
 import { Link } from "@/components/primitives/Link";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import Social from "./Social";
 
 export default function Footer() {
   return (
     <Container sx={{ my: 4 }}>
-      <Grid container>
+      <Grid container spacing={3}>
         <Grid item xs={12} sm={8}>
-          <Typography>Crosby</Typography>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Link
+              href={"/"}
+              variant="h2"
+              underline="none"
+              sx={{ color: "text.primary" }}
+            >
+              Crosby
+            </Link>
+          </Box>
         </Grid>
         <Grid item xs={6} sm={2}>
-          <Box>
-            <Link underline="always" href={"/shop"}>
+          <Box sx={{ mb: 2 }}>
+            <Link
+              variant="body1"
+              sx={{ color: "text.secondary" }}
+              underline="hover"
+              href={"/shop"}
+            >
               Shop
             </Link>
           </Box>
-          <Box>
-            <Link underline="always" href={"/our-story"}>
+          <Box sx={{ my: 2 }}>
+            <Link
+              variant="body1"
+              sx={{ color: "text.secondary" }}
+              underline="hover"
+              href={"/our-story"}
+            >
               Our Story
             </Link>
           </Box>
         </Grid>
         <Grid item xs={6} sm={2}>
-          <Box>
-            <Link underline="always" href={"/journal"}>
+          <Box sx={{ mb: 2 }}>
+            <Link
+              variant="body1"
+              sx={{ color: "text.secondary" }}
+              underline="hover"
+              href={"/journal"}
+            >
               Journal
             </Link>
           </Box>
-          <Box>
-            <Link underline="always" href={"/contact-us"}>
+          <Box sx={{ my: 2 }}>
+            <Link
+              variant="body1"
+              sx={{ color: "text.secondary" }}
+              underline="hover"
+              href={"/contact-us"}
+            >
               Contact
             </Link>
           </Box>

@@ -43,7 +43,7 @@ export function getThemeConfig(): ThemeOptions {
         border: "#0E2331",
       },
       background: {
-        default: "#00060D",
+        default: "#38383b",
         paper: "#0D1921",
         primary: "#0E1D27",
         secondary: "#172731",
@@ -58,7 +58,7 @@ export function getThemeConfig(): ThemeOptions {
       },
       text: {
         primary: "#FFFFFF",
-        secondary: "#5185AA",
+        secondary: "#a8a6a1",
       },
       action: {
         hoverOpacity: 0.14,
@@ -67,14 +67,14 @@ export function getThemeConfig(): ThemeOptions {
       divider: "#172C46",
     },
     typography: {
-      h1: buildVariant(800, 50, 60, 0),
+      h1: buildVariant(550, 50, 60, 0),
       h2: buildVariant(600, 30, 35, 0),
       h3: buildVariant(600, 26, 35, 0),
       h4: buildVariant(600, 20, 24, 0),
       subtitle1: buildVariant(600, 20, 24, 0),
       subtitle2: buildVariant(600, 18, 22, 0),
-      body1: buildVariant(400, 16, 20, 0),
-      body2: buildVariant(400, 14, 18, 0),
+      body1: buildVariant(400, 19, 20, 0),
+      body2: buildVariant(400, 16, 18, 0),
       small: buildVariant(400, 12, 16, 0),
       button: {
         ...buildVariant(500, 14, 18, 0),
@@ -149,7 +149,7 @@ export function getThemeConfig(): ThemeOptions {
           },
           body: {
             overflowX: "hidden",
-            fontFamily: "'Montserrat', sans-serif",
+            fontFamily: "'Assistant', sans-serif",
           },
           // wallet modal
           ":root": {

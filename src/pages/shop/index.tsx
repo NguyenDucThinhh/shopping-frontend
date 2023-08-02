@@ -1,13 +1,17 @@
-import { Box } from "@mui/material";
-import Introduction from "@/modules/home/introduction";
 import FullLayout from "@/layouts/FullLayout";
+import IntroductionShop from "@/modules/shop/IntroductionShop";
+import Products from "@/modules/shop/Products";
+import { Box } from "@mui/material";
 import { NextPageWithLayout } from "../_app";
 
 const Shop: NextPageWithLayout = (props) => {
   return (
-    <Box>
-      <Introduction />
-    </Box>
+    <>
+      <IntroductionShop />
+      <Box sx={{ mt: 4 }}>
+        <Products />
+      </Box>
+    </>
   );
 };
 

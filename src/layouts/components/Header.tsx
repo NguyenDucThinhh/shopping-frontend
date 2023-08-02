@@ -1,5 +1,6 @@
 import { Link } from "@/components/primitives/Link";
 import { Box, Container, Typography } from "@mui/material";
+import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import Social from "./Social";
 
@@ -26,6 +27,8 @@ export default function Header() {
       link: "/contact-us",
     },
   ];
+
+  const router = useRouter();
 
   const [hide, setHide] = useState(false);
   const headerRef = useRef<HTMLElement | null>(null);
@@ -79,16 +82,29 @@ export default function Header() {
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Typography variant="h2">Crosby</Typography>
+          <Link
+            href={"/"}
+            variant="h2"
+            underline="none"
+            sx={{ color: "text.primary" }}
+          >
+            Crosby
+          </Link>
         </Box>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           {headerConfigs.map((item) => (
             <Link href={item.link} key={item.id}>
               <Typography
                 variant="body1"
-                sx={{ color: "text.primary", p: 2, cursor: "pointer" }}
+                sx={{
+                  color: "text.primary",
+                  p: 2,
+                  cursor: "pointer",
+                  textDecoration:
+                    router.pathname === item.link ? "underline" : "none",
+                }}
               >
-                {item.title}
+                <span style={{ paddingBottom: "4px" }}>{item.title}</span>
               </Typography>
             </Link>
           ))}

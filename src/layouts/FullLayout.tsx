@@ -14,11 +14,11 @@ export default function FullLayout({
         display: "flex",
         flexDirection: "column",
         minHeight: "100vh",
-        bgColor: "background",
+        bgColor: "background.default",
       }}
     >
       <Header />
-      <Box component="main" sx={{ flexGrow: 1 }}>
+      <Box component="main" sx={{ flexGrow: 1 }} pt={"70px"}>
         {children}
       </Box>
       <Footer />

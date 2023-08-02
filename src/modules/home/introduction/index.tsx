@@ -24,23 +24,39 @@ export default function Introduction() {
         }}
       >
         <Box>
-          <Typography variant="h1" sx={{ textAlign: "center" }}>
+          <Typography
+            variant="h1"
+            sx={{ textAlign: "center", fontWeight: 500 }}
+          >
             Plants and Pots
           </Typography>
-          <Typography variant="h1" sx={{ textAlign: "center" }}>
+          <Typography
+            variant="h1"
+            sx={{ textAlign: "center", fontWeight: 500 }}
+          >
             For Your Home
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "center", width: "100vw" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            width: "100vw",
+            mt: 4,
+          }}
+        >
           <Button
             sx={{
               textAlign: "center",
               p: "20px 30px 20px 30px",
+              color: "text.primary",
+              bgcolor: "#a8a6a0",
+              borderRadius: 0,
+              width: 180,
             }}
             variant="contained"
-            color="secondary"
           >
-            Shop Nows
+            Shop Now
           </Button>
         </Box>
       </Box>
