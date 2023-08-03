@@ -27,7 +27,6 @@ const data = [
 ];
 function Journal(props: JournalProps) {
   const { item } = props;
-  console.log("🚀 ~ file: Journals.tsx:30 ~ Journal ~ item:", item);
   return (
     <Box sx={{ my: 8 }}>
       <Box
