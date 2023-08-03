@@ -7,7 +7,7 @@ interface JournalProps {
     title: string;
     timestamp: string;
     author: string;
-    imgUrl: string;
+    // imgUrl: string;
   };
 }
 
@@ -16,13 +16,13 @@ const data = [
     title: "Is It Flowers You’re After?",
     timestamp: "6/6/19",
     author: "Written By Guest User",
-    imgUrl: image1.src,
+    // imgUrl: image1.src,
   },
   {
     title: "Searching for Succulents?",
     timestamp: "6/3/19",
     author: "Written By Guest User",
-    imgUrl: image2.src,
+    // imgUrl: image2.src,
   },
 ];
 function Journal(props: JournalProps) {
@@ -37,7 +37,7 @@ function Journal(props: JournalProps) {
           width: "100%",
         }}
       >
-        <img src={item.imgUrl} width="70%" />
+        {/* <img src={item.imgUrl} width="70%" /> */}
       </Box>
       <Typography sx={{ textAlign: "center", mt: 4 }} variant="body1">
         {item.timestamp}
