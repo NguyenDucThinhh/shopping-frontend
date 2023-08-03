@@ -6,9 +6,7 @@ import { NextPageWithLayout } from "../_app";
 const Journal: NextPageWithLayout = (props) => {
   return (
     <>
-      <Container>
-        <Journals />
-      </Container>
+      <Journals />
     </>
   );
 };
